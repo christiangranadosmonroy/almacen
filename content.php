@@ -12,21 +12,21 @@ else {
 		include "modules/start/view.php";
 	}
 
-	elseif ($_GET['module'] == 'medicines') {
-		include "modules/medicines/view.php";
+	elseif ($_GET['module'] == 'productos') {
+		include "modules/productos/view.php";
 	}
 
-	elseif ($_GET['module'] == 'form_medicines') {
-		include "modules/medicines/form.php";
+	elseif ($_GET['module'] == 'form_productos') {
+		include "modules/productos/form.php";
 	}
 	
 
-	elseif ($_GET['module'] == 'medicines_transaction') {
-		include "modules/medicines_transaction/view.php";
+	elseif ($_GET['module'] == 'productos_transaction') {
+		include "modules/productos_transaction/view.php";
 	}
 
-	elseif ($_GET['module'] == 'form_medicines_transaction') {
-		include "modules/medicines_transaction/form.php";
+	elseif ($_GET['module'] == 'form_productos_transaction') {
+		include "modules/productos_transaction/form.php";
 	}
 	
 

@@ -24,7 +24,7 @@ if (isset($_GET['tgl_awal'])) {
     $no    = 1;
     
     $query = mysqli_query($mysqli, "SELECT a.tipo_transaccion, a.codigo_transaccion,a.fecha,a.codigo,a.numero,b.codigo,b.nombre,b.unidad
-                                    FROM transaccion_medicamentos as a INNER JOIN medicamentos as b ON a.codigo=b.codigo
+                                    FROM transaccion_productos as a INNER JOIN productos as b ON a.codigo=b.codigo
                                     WHERE a.fecha BETWEEN '$tgl_awal' AND '$tgl_akhir'
                                     ORDER BY a.codigo_transaccion ASC") 
                                     or die('error '.mysqli_error($mysqli));
@@ -34,12 +34,12 @@ if (isset($_GET['tgl_awal'])) {
 <html xmlns="http://www.w3.org/1999/xhtml"> 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>REPORTE DE MEDICAMENTOS</title>
+        <title>Reporte de productos</title>
         <link rel="stylesheet" type="text/css" href="../../assets/css/laporan.css" />
     </head>
     <body>
         <div id="title">
-           DATOS DE REGISTROS DE MEDICAMENTOS
+           Datos de registro de los productos
         </div>
     <?php  
     if ($tgl_awal==$tgl_akhir) { ?>
@@ -63,8 +63,8 @@ if (isset($_GET['tgl_awal'])) {
                         <th height="20" align="center" valign="middle"><small>NO.</small></th>
                         <th height="20" align="center" valign="middle"><small>TRANSACCION No </small></th>
                         <th height="20" align="center" valign="middle"><small>FECHA</small></th>
-                        <th height="20" align="center" valign="middle"><small>CÓDIGO </small></th>
-                        <th height="20" align="center" valign="middle"><small>NOMBRE DE MEDICAMENTO</small></th>
+                        <th height="20" align="center" valign="middle"><small>CODIGO </small></th>
+                        <th height="20" align="center" valign="middle"><small>NOMBRE DEL PRODUCTO</small></th>
                         <th height="20" align="center" valign="middle"><small>TIPO </small></th>
 						<th height="20" align="center" valign="middle"><small>CANT. </small></th>
                         <th height="20" align="center" valign="middle"><small>UNIDAD</small></th>
@@ -114,7 +114,7 @@ if (isset($_GET['tgl_awal'])) {
     </body>
 </html>
 <?php
-$filename="datos de registro de medicamentos.pdf"; 
+$filename="datos de registro de los productos.pdf"; 
 $content = ob_get_clean();
 $content = '<page style="font-family: freeserif">'.($content).'</page>';
 

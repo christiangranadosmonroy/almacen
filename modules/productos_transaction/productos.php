@@ -9,7 +9,7 @@ if(isset($_POST['dataidobat'])) {
 	$codigo = $_POST['dataidobat'];
 
  
-  $query = mysqli_query($mysqli, "SELECT codigo,nombre,unidad,stock FROM medicamentos WHERE codigo='$codigo'")
+  $query = mysqli_query($mysqli, "SELECT codigo,nombre,unidad,stock FROM productos WHERE codigo='$codigo'")
                                   or die('error '.mysqli_error($mysqli));
 
 

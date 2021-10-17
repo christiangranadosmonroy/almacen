@@ -2,9 +2,9 @@
 
 <section class="content-header">
   <h1>
-    <i class="fa fa-sign-in icon-title"></i> Registro de medicamentos
+    <i class="fa fa-sign-in icon-title"></i> Registro de Productos
 
-    <a class="btn btn-primary btn-social pull-right" href="?module=form_medicines_transaction&form=add" title="Agregar" data-toggle="tooltip">
+    <a class="btn btn-primary btn-social pull-right" href="?module=form_productos_transaction&form=add" title="Agregar" data-toggle="tooltip">
       <i class="fa fa-plus"></i> Entradas / Salidas
     </a>
   </h1>
@@ -24,7 +24,7 @@
       echo "<div class='alert alert-success alert-dismissable'>
               <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
               <h4>  <i class='icon fa fa-check-circle'></i> Exito!</h4>
-              Datos de medicamentos han sido registrado correctamente.
+              Los datos de productos han sido registrado correctamente.
             </div>";
     }
     ?>
@@ -40,7 +40,7 @@
                 <th class="center">Codigo de Transación</th>
                 <th class="center">Fecha</th>
                 <th class="center">Codigo</th>
-                <th class="center">Medicamento</th>
+                <th class="center">Producto</th>
 				<th class="center">Tipo</th>
                 <th class="center">Cant.</th>
                 <th class="center">Unidad</th>
@@ -52,7 +52,7 @@
             $no = 1;
            
             $query = mysqli_query($mysqli, "SELECT a.tipo_transaccion, a.codigo_transaccion,a.fecha,a.codigo,a.numero,b.codigo,b.nombre,b.unidad
-                                            FROM transaccion_medicamentos as a INNER JOIN medicamentos as b ON a.codigo=b.codigo ORDER BY codigo_transaccion DESC")
+                                            FROM transaccion_productos as a INNER JOIN productos as b ON a.codigo=b.codigo ORDER BY codigo_transaccion DESC")
                                             or die('error '.mysqli_error($mysqli));
 
            

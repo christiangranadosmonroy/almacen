@@ -4,11 +4,11 @@ if ($_GET['form']=='add') { ?>
 
   <section class="content-header">
     <h1>
-      <i class="fa fa-edit icon-title"></i> Agregar Medicamentos
+      <i class="fa fa-edit icon-title"></i> Agregar productos
     </h1>
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
-      <li><a href="?module=medicines"> Medicamentos </a></li>
+      <li><a href="?module=productos">productos </a></li>
       <li class="active"> Más </li>
     </ol>
   </section>
@@ -19,11 +19,11 @@ if ($_GET['form']=='add') { ?>
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/medicines/proses.php?act=insert" method="POST">
+          <form role="form" class="form-horizontal" action="modules/productos/proses.php?act=insert" method="POST">
             <div class="box-body">
               <?php  
           
-              $query_id = mysqli_query($mysqli, "SELECT RIGHT(codigo,6) as codigo FROM medicamentos
+              $query_id = mysqli_query($mysqli, "SELECT RIGHT(codigo,6) as codigo FROM productos
                                                 ORDER BY codigo DESC LIMIT 1")
                                                 or die('error '.mysqli_error($mysqli));
 
@@ -81,11 +81,9 @@ if ($_GET['form']=='add') { ?>
                 <div class="col-sm-5">
                   <select class="chosen-select" name="unidad" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                     <option value=""></option>
-                    <option value="botellas">Botella</option>
-                    <option value="cajas">Cajas</option>
-                    <option value="caja">Caja</option>
-                    <option value="raya">Raya</option>
-                    <option value="tubo">Tubo</option>
+                    <option value="botellas">Caja</option>
+                    <option value="volumen">Volumen</option>
+                    <option value="individual">Individual</option>
                   </select>
                 </div>
               </div>
@@ -96,7 +94,7 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <input type="submit" class="btn btn-primary btn-submit" name="Guardar" value="Guardar">
-                  <a href="?module=medicines" class="btn btn-default btn-reset">Cancelar</a>
+                  <a href="?module=productos" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
             </div><!-- /.box footer -->
@@ -111,7 +109,7 @@ if ($_GET['form']=='add') { ?>
 elseif ($_GET['form']=='edit') { 
   if (isset($_GET['id'])) {
 
-      $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad FROM medicamentos WHERE codigo='$_GET[id]'") 
+      $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad FROM productos WHERE codigo='$_GET[id]'") 
                                       or die('error: '.mysqli_error($mysqli));
       $data  = mysqli_fetch_assoc($query);
     }
@@ -119,11 +117,11 @@ elseif ($_GET['form']=='edit') {
 
   <section class="content-header">
     <h1>
-      <i class="fa fa-edit icon-title"></i> Modificar Medicamento
+      <i class="fa fa-edit icon-title"></i> Modificar Producto
     </h1>
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
-      <li><a href="?module=medicines"> Medicamentos </a></li>
+      <li><a href="?module=productos"> Productos </a></li>
       <li class="active"> Modificar </li>
     </ol>
   </section>
@@ -134,7 +132,7 @@ elseif ($_GET['form']=='edit') {
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/medicines/proses.php?act=update" method="POST">
+          <form role="form" class="form-horizontal" action="modules/productos/proses.php?act=update" method="POST">
             <div class="box-body">
               
               <div class="form-group">
@@ -176,11 +174,9 @@ elseif ($_GET['form']=='edit') {
                 <div class="col-sm-5">
                   <select class="chosen-select" name="unidad" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                     <option value="<?php echo $data['unidad']; ?>"><?php echo $data['unidad']; ?></option>
-                   <option value="botellas">Botella</option>
-                    <option value="cajas">Cajas</option>
-                    <option value="caja">Caja</option>
-                    <option value="raya">Raya</option>
-                    <option value="tubo">Tubo</option>
+                    <option value="botellas">Caja</option>
+                    <option value="volumen">Volumen</option>
+                    <option value="individual">Individual</option>
                   </select>
                 </div>
               </div>
@@ -191,7 +187,7 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <input type="submit" class="btn btn-primary btn-submit" name="Guardar" value="Guardar">
-                  <a href="?module=medicines" class="btn btn-default btn-reset">Cancelar</a>
+                  <a href="?module=productos" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
             </div><!-- /.box footer -->

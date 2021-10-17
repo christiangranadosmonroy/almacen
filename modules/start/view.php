@@ -15,7 +15,7 @@
         <div class="alert alert-info alert-dismissable">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <p style="font-size:15px">
-            <i class="icon fa fa-user"></i> Bienvenido <strong><?php echo $_SESSION['name_user']; ?></strong> a la aplicación de inventario de medicamentos.
+            <i class="icon fa fa-user"></i> Bienvenido <strong><?php echo $_SESSION['name_user']; ?></strong> a la aplicación de inventario de almacen de palabanda.
           </p>        
         </div>
       </div>  
@@ -29,21 +29,21 @@
           <div class="inner">
             <?php  
           
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM medicamentos")
+            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM productos")
                                             or die('Error '.mysqli_error($mysqli));
 
            
             $data = mysqli_fetch_assoc($query);
             ?>
             <h3><?php echo $data['numero']; ?></h3>
-            <p>Datos de Medicamentos</p>
+            <p>Datos del Producto</p>
           </div>
           <div class="icon">
             <i class="fa fa-folder"></i>
           </div>
           <?php  
           if ($_SESSION['permisos_acceso']!='gerente') { ?>
-            <a href="?module=form_medicines&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
+            <a href="?module=form_productos&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
           <?php
           } else { ?>
             <a class="small-box-footer"><i class="fa"></i></a>
@@ -59,21 +59,21 @@
           <div class="inner">
             <?php   
    
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo_transaccion) as numero FROM transaccion_medicamentos")
+            $query = mysqli_query($mysqli, "SELECT COUNT(codigo_transaccion) as numero FROM transaccion_productos")
                                             or die('Error '.mysqli_error($mysqli));
 
 
             $data = mysqli_fetch_assoc($query);
             ?>
             <h3><?php echo $data['numero']; ?></h3>
-            <p>datos de entrada de Medicamentos</p>
+            <p>Datos de entrada del producto</p>
           </div>
           <div class="icon">
             <i class="fa fa-sign-in"></i>
           </div>
           <?php  
           if ($_SESSION['permisos_acceso']!='gerente') { ?>
-            <a href="?module=form_medicines_transaction&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
+            <a href="?module=form_productos_transaction&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
           <?php
           } else { ?>
             <a class="small-box-footer"><i class="fa"></i></a>
@@ -89,13 +89,13 @@
           <div class="inner">
             <?php  
   
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM medicamentos")
+            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM productos")
                                             or die('Error'.mysqli_error($mysqli));
 
             $data = mysqli_fetch_assoc($query);
             ?>
             <h3><?php echo $data['numero']; ?></h3>
-            <p>Stock Medicamentos</p>
+            <p>Stock Productos</p>
           </div>
           <div class="icon">
             <i class="fa fa-file-text-o"></i>
@@ -110,13 +110,13 @@
           <div class="inner">
             <?php   
   
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo_transaccion) as numero FROM transaccion_medicamentos")
+            $query = mysqli_query($mysqli, "SELECT COUNT(codigo_transaccion) as numero FROM transaccion_productos")
                                             or die('Error: '.mysqli_error($mysqli));
 
             $data = mysqli_fetch_assoc($query);
             ?>
             <h3><?php echo $data['numero']; ?></h3>
-            <p>Registros de Medicamentos</p>
+            <p>Registros de los productos</p>
           </div>
           <div class="icon">
             <i class="fa fa-clone"></i>

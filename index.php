@@ -3,11 +3,10 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Login | Inventario de Medicamentos</title>
+    <title>Login | Inventario</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Aplikasi Persediaan Obat pada Apotek">
-    <meta name="author" content="Indra Styawantoro" />
+    <meta name="PalabandaMexico"/>
 
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.png" />
@@ -28,7 +27,7 @@
     <div class="login-box">
       <!-- /.login-logo -->
       <div style="color:#FF0040" class="login-logo">
-        <img style="margin-top:-12px" src="assets/img/logoPixel.png" alt="Logo" height="50"> <b>PixelMedic</b>
+        <img style="margin-top:-12px" src="assets/img/palabanda.png" alt="Logo" height="50">
       </div>
       <?php  
  

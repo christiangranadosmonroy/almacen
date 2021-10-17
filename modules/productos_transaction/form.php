@@ -3,7 +3,7 @@
   function tampil_obat(input){
     var num = input.value;
 
-    $.post("modules/medicines_transaction/medicines.php", {
+    $.post("modules/productos_transaction/productos.php", {
       dataidobat: num,
     }, function(response) {      
       $('#stok').html(response)
@@ -49,11 +49,11 @@ if ($_GET['form']=='add') { ?>
 
   <section class="content-header">
     <h1>
-      <i class="fa fa-edit icon-title"></i> Datos entradas / salidas de Medicamentos
+      <i class="fa fa-edit icon-title"></i> Datos entradas / salidas de Productos
     </h1>
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
-      <li><a href="?module=medicines_transaction"> Entrada </a></li>
+      <li><a href="?module=productos_transaction"> Entrada </a></li>
       <li class="active"> Agregar </li>
     </ol>
   </section>
@@ -64,11 +64,11 @@ if ($_GET['form']=='add') { ?>
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/medicines_transaction/proses.php?act=insert" method="POST" name="formObatMasuk">
+          <form role="form" class="form-horizontal" action="modules/productos_transaction/proses.php?act=insert" method="POST" name="formObatMasuk">
             <div class="box-body">
               <?php  
             
-              $query_id = mysqli_query($mysqli, "SELECT RIGHT(codigo_transaccion,7) as codigo FROM transaccion_medicamentos
+              $query_id = mysqli_query($mysqli, "SELECT RIGHT(codigo_transaccion,7) as codigo FROM transaccion_productos
                                                 ORDER BY codigo_transaccion DESC LIMIT 1")
                                                 or die('Error : '.mysqli_error($mysqli));
 
@@ -105,12 +105,12 @@ if ($_GET['form']=='add') { ?>
               <hr>
 
               <div class="form-group">  
-                <label class="col-sm-2 control-label">Medicamento</label>
+                <label class="col-sm-2 control-label">Producto</label>
                 <div class="col-sm-5">
-                  <select class="chosen-select" name="codigo" data-placeholder="-- Seleccionar Medicamento --" onchange="tampil_obat(this)" autocomplete="off" required>
+                  <select class="chosen-select" name="codigo" data-placeholder="-- Seleccionar Producto --" onchange="tampil_obat(this)" autocomplete="off" required>
                     <option value=""></option>
                     <?php
-                      $query_obat = mysqli_query($mysqli, "SELECT codigo, nombre FROM Medicamentos ORDER BY nombre ASC")
+                      $query_obat = mysqli_query($mysqli, "SELECT codigo, nombre FROM producto ORDER BY nombre ASC")
                                                             or die('error '.mysqli_error($mysqli));
                       while ($data_obat = mysqli_fetch_assoc($query_obat)) {
                         echo"<option value=\"$data_obat[codigo]\"> $data_obat[codigo] | $data_obat[nombre] </option>";
@@ -159,7 +159,7 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <input type="submit" class="btn btn-primary btn-submit" name="Guardar" value="Guardar">
-                  <a href="?module=medicines_transaction" class="btn btn-default btn-reset">Cancelar</a>
+                  <a href="?module=productos_transaction" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
             </div><!-- /.box footer -->

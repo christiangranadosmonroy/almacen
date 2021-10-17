@@ -1,8 +1,8 @@
 <section class="content-header">
   <h1>
-    <i class="fa fa-folder-o icon-title"></i> Datos de Medicamentos
+    <i class="fa fa-folder-o icon-title"></i> Datos de Productos
 
-    <a class="btn btn-primary btn-social pull-right" href="?module=form_medicines&form=add" title="agregar" data-toggle="tooltip">
+    <a class="btn btn-primary btn-social pull-right" href="?module=form_productos&form=add" title="agregar" data-toggle="tooltip">
       <i class="fa fa-plus"></i> Agregar
     </a>
   </h1>
@@ -24,7 +24,7 @@
       echo "<div class='alert alert-success alert-dismissable'>
               <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
               <h4>  <i class='icon fa fa-check-circle'></i> Exito!</h4>
-             Nuevos datos de medicamentos ha sido  almacenado correctamente.
+             Nuevos datos de los productos han sido  almacenado correctamente.
             </div>";
     }
 
@@ -32,7 +32,7 @@
       echo "<div class='alert alert-success alert-dismissable'>
               <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
               <h4>  <i class='icon fa fa-check-circle'></i> Exito!</h4>
-             Datos del Medicamento modificados correcamente.
+             Datos del Productos modificados correcamente.
             </div>";
     }
 
@@ -40,7 +40,7 @@
       echo "<div class='alert alert-success alert-dismissable'>
               <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
               <h4>  <i class='icon fa fa-check-circle'></i> Exito!</h4>
-            Se eliminaron los datos del Medicamento
+            Se eliminaron los datos del Productos
             </div>";
     }
     ?>
@@ -65,7 +65,7 @@
             <tbody>
             <?php  
             $no = 1;
-            $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad,stock FROM medicamentos ORDER BY codigo DESC")
+            $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad,stock FROM productos ORDER BY codigo DESC")
                                             or die('error: '.mysqli_error($mysqli));
 
             while ($data = mysqli_fetch_assoc($query)) { 
@@ -82,11 +82,11 @@
                       <td width='80' class='center'>$data[unidad]</td>
                       <td class='center' width='80'>
                         <div>
-                          <a data-toggle='tooltip' data-placement='top' title='modificar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_medicines&form=edit&id=$data[codigo]'>
+                          <a data-toggle='tooltip' data-placement='top' title='modificar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_productos&form=edit&id=$data[codigo]'>
                               <i style='color:#fff' class='glyphicon glyphicon-edit'></i>
                           </a>";
             ?>
-                          <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/medicines/proses.php?act=delete&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de eliminar<?php echo $data['nombre']; ?> ?');">
+                          <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/productos/proses.php?act=delete&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de eliminar<?php echo $data['nombre']; ?> ?');">
                               <i style="color:#fff" class="glyphicon glyphicon-trash"></i>
                           </a>
             <?php

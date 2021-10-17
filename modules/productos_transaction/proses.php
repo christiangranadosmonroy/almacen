@@ -26,21 +26,21 @@ else {
             $created_user    = $_SESSION['id_user'];
 
           
-            $query = mysqli_query($mysqli, "INSERT INTO transaccion_medicamentos(codigo_transaccion,fecha,codigo,numero,created_user,tipo_transaccion) 
+            $query = mysqli_query($mysqli, "INSERT INTO transaccion_productos(codigo_transaccion,fecha,codigo,numero,created_user,tipo_transaccion) 
                                             VALUES('$codigo_transaccion','$fecha_a','$codigo','$num','$created_user','$tipo_transaccion')")
                                             or die('Error: '.mysqli_error($mysqli));    
 
            
             if ($query) {
                 
-                $query1 = mysqli_query($mysqli, "UPDATE medicamentos SET stock        = '$total_stock'
+                $query1 = mysqli_query($mysqli, "UPDATE productos SET stock        = '$total_stock'
                                                               WHERE codigo   = '$codigo'")
                                                 or die('Error: '.mysqli_error($mysqli));
 
                
                 if ($query1) {                       
                     
-                    header("location: ../../main.php?module=medicines_transaction&alert=1");
+                    header("location: ../../main.php?module=productos_transaction&alert=1");
                 }
             }   
         }   

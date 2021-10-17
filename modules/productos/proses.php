@@ -22,14 +22,14 @@ else {
             $created_user = $_SESSION['id_user'];
 
   
-            $query = mysqli_query($mysqli, "INSERT INTO medicamentos(codigo,nombre,precio_compra,precio_venta,unidad,created_user,updated_user) 
+            $query = mysqli_query($mysqli, "INSERT INTO productos(codigo,nombre,precio_compra,precio_venta,unidad,created_user,updated_user) 
                                             VALUES('$codigo','$nombre','$pcompra','$pventa','$unidad','$created_user','$created_user')")
                                             or die('error '.mysqli_error($mysqli));    
 
         
             if ($query) {
          
-                header("location: ../../main.php?module=medicines&alert=1");
+                header("location: ../../main.php?module=productos&alert=1");
             }   
         }   
     }
@@ -46,7 +46,7 @@ else {
 
                 $updated_user = $_SESSION['id_user'];
 
-                $query = mysqli_query($mysqli, "UPDATE medicamentos SET  nombre       = '$nombre',
+                $query = mysqli_query($mysqli, "UPDATE productos SET  nombre       = '$nombre',
                                                                     precio_compra      = '$pcompra',
                                                                     precio_venta      = '$pventa',
                                                                     unidad          = '$unidad',
@@ -57,7 +57,7 @@ else {
     
                 if ($query) {
                   
-                    header("location: ../../main.php?module=medicines&alert=2");
+                    header("location: ../../main.php?module=productos&alert=2");
                 }         
             }
         }
@@ -67,13 +67,13 @@ else {
         if (isset($_GET['id'])) {
             $codigo = $_GET['id'];
       
-            $query = mysqli_query($mysqli, "DELETE FROM medicamentos WHERE codigo='$codigo'")
+            $query = mysqli_query($mysqli, "DELETE FROM productos WHERE codigo='$codigo'")
                                             or die('error '.mysqli_error($mysqli));
 
 
             if ($query) {
      
-                header("location: ../../main.php?module=medicines&alert=3");
+                header("location: ../../main.php?module=productos&alert=3");
             }
         }
     }       
