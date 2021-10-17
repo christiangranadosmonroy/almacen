@@ -41,7 +41,7 @@
                 <th class="center">Fecha</th>
                 <th class="center">Codigo</th>
                 <th class="center">Producto</th>
-				<th class="center">Tipo</th>
+                <th class="center">Tipo</th>
                 <th class="center">Cant.</th>
                 <th class="center">Unidad</th>
               </tr>

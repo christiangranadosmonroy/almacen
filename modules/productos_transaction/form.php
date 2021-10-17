@@ -6,7 +6,7 @@
     $.post("modules/productos_transaction/productos.php", {
       dataidobat: num,
     }, function(response) {      
-      $('#stok').html(response)
+      $('#stock').html(response)
 
       document.getElementById('jumlah_masuk').focus();
     });
@@ -21,8 +21,8 @@
     }
   }
 
-  function hitung_total_stok() {
-    bil1 = document.formObatMasuk.stok.value;
+  function hitung_total_stock() {
+    bil1 = document.formObatMasuk.stock.value;
     bil2 = document.formObatMasuk.jumlah_masuk.value;
 	tt = document.formObatMasuk.transaccion.value;
 	
@@ -35,9 +35,9 @@
     }
 
 	if (tt=="Salida"){
-		document.formObatMasuk.total_stok.value = (salida);
+		document.formObatMasuk.total_stock.value = (salida);
 	}	else {
-		document.formObatMasuk.total_stok.value = (hasil);
+		document.formObatMasuk.total_stock.value = (hasil);
 	} 
     
   }
@@ -105,12 +105,12 @@ if ($_GET['form']=='add') { ?>
               <hr>
 
               <div class="form-group">  
-                <label class="col-sm-2 control-label">Producto</label>
+                <label class="col-sm-2 control-label">Productos</label>
                 <div class="col-sm-5">
                   <select class="chosen-select" name="codigo" data-placeholder="-- Seleccionar Producto --" onchange="tampil_obat(this)" autocomplete="off" required>
                     <option value=""></option>
                     <?php
-                      $query_obat = mysqli_query($mysqli, "SELECT codigo, nombre FROM producto ORDER BY nombre ASC")
+                      $query_obat = mysqli_query($mysqli, "SELECT codigo, nombre FROM productos ORDER BY nombre ASC")
                                                             or die('error '.mysqli_error($mysqli));
                       while ($data_obat = mysqli_fetch_assoc($query_obat)) {
                         echo"<option value=\"$data_obat[codigo]\"> $data_obat[codigo] | $data_obat[nombre] </option>";
@@ -120,11 +120,11 @@ if ($_GET['form']=='add') { ?>
                 </div>
               </div>
               
-              <span id='stok'>
+              <span id='stock'>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Stock</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="stok" name="stock" readonly required>
+                  <input type="number" class="form-control" id="stock" name="stock">
                 </div>
               </div>
               </span>
@@ -132,14 +132,14 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Cantidad</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="jumlah_masuk" name="num" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" onkeyup="hitung_total_stok(this)&cek_jumlah_masuk(this)" required>
+                  <input type="text" class="form-control" id="jumlah_masuk" name="num" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" onkeyup="hitung_total_stock(this)&cek_jumlah_masuk(this)" required>
                 </div>
               </div>
 			  
 			  <div class="form-group">
                 <label class="col-sm-2 control-label">Transacción</label>
                 <div class="col-sm-5">
-                  <select name="transaccion" id="transaccion" required class='form-control' onchange="hitung_total_stok();">
+                  <select name="transaccion" id="transaccion" required class='form-control' onchange="hitung_total_stock();">
 					<option value="Salida">Salida</option>
 					<option value="Entrada">Entrada</option>
 				  </select>
@@ -149,7 +149,7 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Total Stock</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="total_stok" name="total_stock" readonly required>
+                  <input type="text" class="form-control" id="total_stock" name="total_stock" readonly required>
                 </div>
               </div>
 

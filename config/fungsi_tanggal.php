@@ -32,7 +32,7 @@
 			$nbln = 'Septiembre';
 		}
 		else if ($kdbl == '10') {
-			$nbln = 'Oktober';
+			$nbln = 'Octubre';
 		}
 		else if ($kdbl == '11') {
 			$nbln = 'Noviembre';

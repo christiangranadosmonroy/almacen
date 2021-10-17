@@ -17,13 +17,14 @@ else {
             $nombre  = mysqli_real_escape_string($mysqli, trim($_POST['nombre']));
             $pcompra = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['pcompra'])));
             $pventa = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['pventa'])));
+            $stock = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['stock'])));
             $unidad     = mysqli_real_escape_string($mysqli, trim($_POST['unidad']));
 
             $created_user = $_SESSION['id_user'];
 
   
-            $query = mysqli_query($mysqli, "INSERT INTO productos(codigo,nombre,precio_compra,precio_venta,unidad,created_user,updated_user) 
-                                            VALUES('$codigo','$nombre','$pcompra','$pventa','$unidad','$created_user','$created_user')")
+            $query = mysqli_query($mysqli, "INSERT INTO productos(codigo,nombre,precio_compra,precio_venta,stock,unidad,created_user,updated_user) 
+                                            VALUES('$codigo','$nombre','$pcompra','$pventa','$stock','$unidad','$created_user','$created_user')")
                                             or die('error '.mysqli_error($mysqli));    
 
         
@@ -42,6 +43,7 @@ else {
                 $nombre  = mysqli_real_escape_string($mysqli, trim($_POST['nombre']));
                 $pcompra = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['pcompra'])));
                 $pventa = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['pventa'])));
+                $stock = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['stock'])));
                 $unidad     = mysqli_real_escape_string($mysqli, trim($_POST['unidad']));
 
                 $updated_user = $_SESSION['id_user'];
@@ -49,6 +51,7 @@ else {
                 $query = mysqli_query($mysqli, "UPDATE productos SET  nombre       = '$nombre',
                                                                     precio_compra      = '$pcompra',
                                                                     precio_venta      = '$pventa',
+                                                                    stock             = '$stock',
                                                                     unidad          = '$unidad',
                                                                     updated_user    = '$updated_user'
                                                               WHERE codigo       = '$codigo'")

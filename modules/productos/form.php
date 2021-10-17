@@ -77,17 +77,28 @@ if ($_GET['form']=='add') { ?>
               </div>
 
               <div class="form-group">
+                <label class="col-sm-2 control-label">Stock</label>
+                <div class="col-sm-5">
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="stock" name="stock" autocomplete="off" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label class="col-sm-2 control-label">Unidad</label>
                 <div class="col-sm-5">
                   <select class="chosen-select" name="unidad" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                     <option value=""></option>
-                    <option value="botellas">Caja</option>
+                    <option value="caja">Caja</option>
+                    <option value="cajas">Cajas</option>
                     <option value="volumen">Volumen</option>
                     <option value="individual">Individual</option>
                   </select>
                 </div>
               </div>
 
+              
             </div><!-- /.box body -->
 
             <div class="box-footer">
@@ -109,7 +120,7 @@ if ($_GET['form']=='add') { ?>
 elseif ($_GET['form']=='edit') { 
   if (isset($_GET['id'])) {
 
-      $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad FROM productos WHERE codigo='$_GET[id]'") 
+      $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,stock,unidad FROM productos WHERE codigo='$_GET[id]'") 
                                       or die('error: '.mysqli_error($mysqli));
       $data  = mysqli_fetch_assoc($query);
     }
@@ -170,11 +181,21 @@ elseif ($_GET['form']=='edit') {
               </div>
 
               <div class="form-group">
+                <label class="col-sm-2 control-label">Stock</label>
+                <div class="col-sm-5">
+                  <div class="input-group">
+                    <input type="number" class="form-control" id="stock" name="stock" autocomplete="off" value="<?php echo $data['stock']; ?>" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label class="col-sm-2 control-label">Unidad</label>
                 <div class="col-sm-5">
                   <select class="chosen-select" name="unidad" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                     <option value="<?php echo $data['unidad']; ?>"><?php echo $data['unidad']; ?></option>
-                    <option value="botellas">Caja</option>
+                    <option value="caja">Caja</option>
+                    <option value="cajas">Cajas</option>
                     <option value="volumen">Volumen</option>
                     <option value="individual">Individual</option>
                   </select>

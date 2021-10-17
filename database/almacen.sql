@@ -44,7 +44,7 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`codigo`, `nombre`, `precio_compra`, `precio_venta`, `unidad`, `stock`, `created_user`, `created_date`, `updated_user`, `updated_date`) VALUES
-('PALBP1', 'Bota', 70, 120, 'volumen', 9, 1, '2017-07-24 16:43:20', 1, '2021-10-16 09:09:06');
+('B000001', 'Bota', 70, 120, 'volumen', 9, 1, '2017-07-24 16:43:20', 1, '2021-10-16 09:09:06');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE `transaccion_productos` (
 --
 
 INSERT INTO `transaccion_productos` (`codigo_transaccion`, `fecha`, `codigo`, `numero`, `created_user`, `created_date`, `tipo_transaccion`) VALUES
-('TP-2021-0000001', '2021-10-16', 'PALBP1', 4, 1, '2021-10-16 09:09:00', 'Salida');
+('TM-2021-0000001', '2021-10-16', 'B000001', 4, 1, '2021-10-16 09:09:00', 'Salida');
 
 -- --------------------------------------------------------
 
