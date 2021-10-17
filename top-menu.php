@@ -42,7 +42,7 @@ $data = mysqli_fetch_assoc($query);
       }
       ?>
 
-      <p>
+      <p class=" custom-p">
         <?php echo $data['name_user']; ?>
         <small><?php echo $data['permisos_acceso']; ?></small>
       </p>

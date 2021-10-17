@@ -4,7 +4,7 @@
       <i class="fa fa-home icon-title"></i> Inicio
     </h1>
     <ol class="breadcrumb">
-      <li><a href="?module=beranda"><i class="fa fa-home"></i> Inicio</a></li>
+      <li><a class="custom-icons" href="?module=start"><i class="fa fa-home"></i> Inicio</a></li>
     </ol>
   </section>
   

@@ -51,21 +51,21 @@
         <form role="form" class="form-horizontal" method="POST" action="modules/password/proses.php">
           <div class="box-body">
 
-            <div class="form-group">
+            <div class="form-group custom-form">
               <label class="col-sm-2 control-label">Contraseña Antigua</label>
               <div class="col-sm-5">
                 <input type="password" class="form-control" name="old_pass" autocomplete="off" required>
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group custom-form">
               <label class="col-sm-2 control-label">Contraseña Nueva</label>
               <div class="col-sm-5">
                 <input type="password" class="form-control" name="new_pass" autocomplete="off" required>
               </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group custom-form">
               <label class="col-sm-2 control-label">Repetir contraseña nueva</label>
               <div class="col-sm-5">
                 <input type="password" class="form-control" name="retype_pass" autocomplete="off" required>

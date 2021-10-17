@@ -88,14 +88,14 @@ if ($_GET['form']=='add') { ?>
               $codigo_transaccion = "TM-$tahun-$buat_id";
               ?>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Codigo de Transacción </label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" name="codigo_transaccion" value="<?php echo $codigo_transaccion; ?>" readonly required>
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Fecha</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" name="fecha_a" autocomplete="off" value="<?php echo date("d-m-Y"); ?>" required>
@@ -104,7 +104,7 @@ if ($_GET['form']=='add') { ?>
 
               <hr>
 
-              <div class="form-group">  
+              <div class="form-group custom-form">  
                 <label class="col-sm-2 control-label">Productos</label>
                 <div class="col-sm-5">
                   <select class="chosen-select" name="codigo" data-placeholder="-- Seleccionar Producto --" onchange="tampil_obat(this)" autocomplete="off" required>
@@ -121,7 +121,7 @@ if ($_GET['form']=='add') { ?>
               </div>
               
               <span id='stock'>
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Stock</label>
                 <div class="col-sm-5">
                   <input type="number" class="form-control" id="stock" name="stock">
@@ -129,14 +129,14 @@ if ($_GET['form']=='add') { ?>
               </div>
               </span>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Cantidad</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" id="jumlah_masuk" name="num" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" onkeyup="hitung_total_stock(this)&cek_jumlah_masuk(this)" required>
                 </div>
               </div>
 			  
-			  <div class="form-group">
+			  <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Transacción</label>
                 <div class="col-sm-5">
                   <select name="transaccion" id="transaccion" required class='form-control' onchange="hitung_total_stock();">
@@ -146,7 +146,7 @@ if ($_GET['form']=='add') { ?>
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Total Stock</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" id="total_stock" name="total_stock" readonly required>

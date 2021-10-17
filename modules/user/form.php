@@ -18,7 +18,7 @@ if ($_GET['form']=='add') { ?>
   <section class="content">
     <div class="row">
       <div class="col-md-12">
-        <div class="box box-primary">
+        <div class="box box-primary custom-form">
           <!-- form start -->
           <form role="form" class="form-horizontal" method="POST" action="modules/user/proses.php?act=insert" enctype="multipart/form-data">
             <div class="box-body">
@@ -87,7 +87,7 @@ elseif ($_GET['form']=='edit') {
       <i class="fa fa-edit icon-title"></i> Modificar datos de Usuario
     </h1>
     <ol class="breadcrumb">
-      <li><a href="?module=beranda"><i class="fa fa-home"></i> Inicio</a></li>
+      <li><a href="?module=start"><i class="fa fa-home"></i> Inicio</a></li>
       <li><a href="?module=user"> Usuario </a></li>
       <li class="active"> Modificar </li>
     </ol>

@@ -46,19 +46,19 @@
     ?>
 
       <div class="box box-primary">
-        <div class="box-body">
+        <div class="box-body custom-form">
     
           <table id="dataTables1" class="table table-bordered table-striped table-hover">
       
             <thead>
               <tr>
-                <th class="center">No.</th>
-                <th class="center">Codigo</th>
-                <th class="center">Nombre</th>
-                <th class="center">Precio de compra</th>
-                <th class="center">Precio de venta</th>
-                <th class="center">Stock</th>
-                <th class="center">Unidad</th>
+                <th class="center ">No.</th>
+                <th class="center ">Codigo</th>
+                <th class="center ">Nombre</th>
+                <th class="center ">Precio de compra</th>
+                <th class="center ">Precio de venta</th>
+                <th class="center ">Stock</th>
+                <th class="center ">Unidad</th>
                 <th></th>
               </tr>
             </thead>

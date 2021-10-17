@@ -73,7 +73,7 @@ if (isset($_SESSION['id_user'])) {
 
             <input type="hidden" name="id_user" value="<?php echo $data['id_user']; ?>">
             
-            <div class="form-group">
+            <div class="form-group custom-form">
               <label class="col-sm-2 control-label">
               <?php  
               if ($data['foto']=="") { ?>
@@ -89,27 +89,27 @@ if (isset($_SESSION['id_user'])) {
               <label style="font-size:25px;margin-top:10px;" class="col-sm-8"><?php echo $data['name_user']; ?></label>
             </div>
             <hr>
-            <div class="form-group">
+            <div class="form-group custom-form">
               <label class="col-sm-2 control-label">Nombre de Usuario</label>
               <label style="text-align:left" class="col-sm-8 control-label">: <?php echo $data['username']; ?></label>
             </div>
 
-            <div class="form-group">
+            <div class="form-group custom-form">
               <label class="col-sm-2 control-label">Email</label>
               <label style="text-align:left" class="col-sm-8 control-label">: <?php echo $data['email']; ?></label>
             </div>
           
-            <div class="form-group">
+            <div class="form-group custom-form">
               <label class="col-sm-2 control-label">Telefono</label>
               <label style="text-align:left" class="col-sm-8 control-label">: <?php echo $data['telefono']; ?></label>
             </div>
 
-            <div class="form-group">
+            <div class="form-group custom-form">
               <label class="col-sm-2 control-label">Permisos de acceso</label>
               <label style="text-align:left" class="col-sm-8 control-label">: <?php echo $data['permisos_acceso']; ?></label>
             </div>
 
-            <div class="form-group">
+            <div class="form-group custom-form">
               <label class="col-sm-2 control-label">Status</label>
               <label style="text-align:left" class="col-sm-8 control-label">: <?php echo $data['status']; ?></label>
             </div>

@@ -19,8 +19,8 @@ if ($_GET['form']=='add') { ?>
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/productos/proses.php?act=insert" method="POST">
-            <div class="box-body">
+          <form role="form" class="form-horizontal " action="modules/productos/proses.php?act=insert" method="POST">
+            <div class="box-body ">
               <?php  
           
               $query_id = mysqli_query($mysqli, "SELECT RIGHT(codigo,6) as codigo FROM productos
@@ -42,21 +42,21 @@ if ($_GET['form']=='add') { ?>
               $codigo = "B$buat_id";
               ?>
 
-              <div class="form-group">
+              <div class="form-group  custom-form">
                 <label class="col-sm-2 control-label">Codigo</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" name="codigo" value="<?php echo $codigo; ?>" readonly required>
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Nombre</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" name="nombre" autocomplete="off" required>
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Precio de Compra</label>
                 <div class="col-sm-5">
                   <div class="input-group">
@@ -66,7 +66,7 @@ if ($_GET['form']=='add') { ?>
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Precio de Venta</label>
                 <div class="col-sm-5">
                   <div class="input-group">
@@ -76,7 +76,7 @@ if ($_GET['form']=='add') { ?>
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Stock</label>
                 <div class="col-sm-5">
                   <div class="input-group">
@@ -85,7 +85,7 @@ if ($_GET['form']=='add') { ?>
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Unidad</label>
                 <div class="col-sm-5">
                   <select class="chosen-select" name="unidad" data-placeholder="-- Seleccionar --" autocomplete="off" required>
@@ -146,21 +146,21 @@ elseif ($_GET['form']=='edit') {
           <form role="form" class="form-horizontal" action="modules/productos/proses.php?act=update" method="POST">
             <div class="box-body">
               
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Codigo</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" name="codigo" value="<?php echo $data['codigo']; ?>" readonly required>
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Nombre</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" name="nombre" autocomplete="off" value="<?php echo $data['nombre']; ?>" required>
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Precio de Compra</label>
                 <div class="col-sm-5">
                   <div class="input-group">
@@ -170,7 +170,7 @@ elseif ($_GET['form']=='edit') {
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Precio de Venta</label>
                 <div class="col-sm-5">
                   <div class="input-group">
@@ -180,7 +180,7 @@ elseif ($_GET['form']=='edit') {
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Stock</label>
                 <div class="col-sm-5">
                   <div class="input-group">
@@ -189,7 +189,7 @@ elseif ($_GET['form']=='edit') {
                 </div>
               </div>
 
-              <div class="form-group">
+              <div class="form-group custom-form">
                 <label class="col-sm-2 control-label">Unidad</label>
                 <div class="col-sm-5">
                   <select class="chosen-select" name="unidad" data-placeholder="-- Seleccionar --" autocomplete="off" required>

@@ -33,6 +33,7 @@ session_start();
     <link href="assets/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="assets/css/custom.css">
     
 
     <script language="javascript">
@@ -78,25 +79,23 @@ session_start();
     </script>
 
   </head>
-  <body class="skin-blue fixed">
+  <body class=" fixe bg-custom ">
     <div class="wrapper">
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="?module=beranda" class="logo">
+        <a class="logo">
           <img style="margin-top:-15px;margin-right:5px; width:150px;" src="assets/img/palabanda.png" alt="Logo">
         </a>
 
-        <nav class="navbar navbar-static-top" role="navigation">
+        <nav class="navbar navbar-static-top custom-navbar" role="navigation">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
           </a>
-          <div class="navbar-custom-menu">
+          <div class="navbar-custom-menu ">
             <ul class="nav navbar-nav">
-
               <?php include "top-menu.php" ?>
-              
             </ul>
           </div>
         </nav>
@@ -113,7 +112,7 @@ session_start();
       </aside>
 
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+      <div class="content-wrapper custom-wrapper">
 
         <?php include "content.php" ?>
 
@@ -138,7 +137,7 @@ session_start();
 
       </div><!-- /.content-wrapper -->
 
-      <footer class="main-footer">
+      <footer class="main-footer custom-footer">
         <strong>Todos los derechos reservados @EndFrameSystems 2021</strong>
       </footer>
     </div><!-- ./wrapper -->

@@ -1,0 +1,48 @@
+:root {
+  --bg: #202124;
+  --btn: #2e428c;
+  --text: #fff;
+}
+/*LoginPage*/
+.bg-custom {
+  background-color: var(--bg);
+}
+.custom-login-box-body {
+  background-color: #333333;
+  color: var(--text);
+  border-top: none;
+}
+.custom-login-box-msg {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
+.btn-custom {
+  background-color: var(--btn);
+}
+/*Dashboard*/
+/*InicioPage*/
+.custom-nabvar {
+  color: #202124;
+}
+.slide-text-custom {
+  color: var(--text);
+}
+.custom-wrapper {
+  background-color: #333333;
+  color: var(--text);
+}
+.custom-footer {
+  background-color: var(--bg);
+  color: var(--text);
+  border: none;
+}
+/*agregar productos*/
+.custom-form {
+  color: #202124;
+}
+li .icons-custom {
+  color: #fff;
+}
+.custom-p {
+  color: #202124;
+}

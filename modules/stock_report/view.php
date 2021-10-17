@@ -3,10 +3,10 @@
   <h1>
     <i class="fa fa-file-text-o icon-title"></i>Informe de datos de registro de los productos
   </h1>
-  <ol class="breadcrumb">
+  <ol class="breadcrumb ">
     <li><a href="?module=start"><i class="fa fa-home"></i> Inicio</a></li>
-    <li class="active">informe</li>
-    <li class="active"> registro de productos</li>
+    <li class="active" >informe</li>
+    <li class="active" > registro de productos</li>
   </ol>
 </section>
 
@@ -16,7 +16,7 @@
     <div class="col-md-12">
 
       
-      <div class="box box-primary">
+      <div class="box box-primary custom-form">
         <!-- form start -->
         <form role="form" class="form-horizontal" method="GET" action="modules/stock_report/print.php" target="_blank">
           <div class="box-body">

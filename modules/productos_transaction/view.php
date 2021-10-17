@@ -29,8 +29,8 @@
     }
     ?>
 
-      <div class="box box-primary">
-        <div class="box-body">
+      <div class="box box-primary ">
+        <div class="box-body custom-form">
          
           <table id="dataTables1" class="table table-bordered table-striped table-hover">
            

@@ -59,7 +59,7 @@ if (isset($_GET['tgl_awal'])) {
         <div id="isi">
             <table width="100%" border="0.3" cellpadding="0" cellspacing="0">
                 <thead style="background:#e8ecee">
-                    <tr class="tr-title">
+                    <tr class="tr-title ">
                         <th height="20" align="center" valign="middle"><small>NO.</small></th>
                         <th height="20" align="center" valign="middle"><small>TRANSACCION No </small></th>
                         <th height="20" align="center" valign="middle"><small>FECHA</small></th>

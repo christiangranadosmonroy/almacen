@@ -11,6 +11,10 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.png" />
 
+    <!--Fonts google-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
     <!-- Bootstrap 3.3.2 -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
@@ -21,12 +25,13 @@
     <link href="assets/plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
 
   </head>
-  <body class="login-page bg-login">
+  <body  class="login-page bg-login bg-custom" >
     <div class="login-box">
       <!-- /.login-logo -->
-      <div style="color:#FF0040" class="login-logo">
+      <div class="login-logo">
         <img style="margin-top:-12px" src="assets/img/palabanda.png" alt="Logo" height="50">
       </div>
       <?php  
@@ -52,23 +57,25 @@
       }
       ?>
 
-      <div class="login-box-body">
-        <p class="login-box-msg"><i class="fa fa-user icon-title"></i> Inicio de sesión</p>
-        <br/>
+      <div class="login-box-body custom-login-box-body">
+        <p class="login-box-msg custom-login-box-msg">Inicio de sesión</p>
+        <br>
         <form action="login-check.php" method="POST">
-          <div class="form-group has-feedback">
-            <input type="text" class="form-control" name="username" placeholder="Usuario" autocomplete="off" required />
+          <div class="form-group has-feedback ">
+            <label for="username">Nombre de usuario</label>
+            <input type="text" class="form-control" name="username" autocomplete="off" required />
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
 
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" name="password" placeholder="Contraseña" required />
+          <label for="password">Contraseña</label>
+            <input type="password" class="form-control" name="password" required />
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <br/>
           <div class="row">
             <div class="col-xs-12">
-              <input type="submit" class="btn btn-primary btn-lg btn-block btn-flat" name="login" value="Ingresar" />
+              <input type="submit" class="btn btn-custom btn-lg btn-block btn-flat" name="login" value="Ingresar" />
             </div><!-- /.col -->
           </div>
         </form>
