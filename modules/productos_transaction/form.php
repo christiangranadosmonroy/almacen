@@ -1,4 +1,5 @@
 
+
 <script type="text/javascript">
   function tampil_obat(input){
     var num = input.value;
@@ -16,7 +17,7 @@
     jml = document.formObatMasuk.jumlah_masuk.value;
     var jumlah = eval(jml);
     if(jumlah < 1){
-      alert('Jumlah Masuk Tidak Boleh Nol !!');
+      alert('La cantidad no puede ser cero');
       input.value = input.value.substring(0,input.value.length-1);
     }
   }
@@ -24,22 +25,20 @@
   function hitung_total_stok() {
     bil1 = document.formObatMasuk.stok.value;
     bil2 = document.formObatMasuk.jumlah_masuk.value;
-	tt = document.formObatMasuk.transaccion.value;
+    tt   = document.formObatMasuk.transaccion.value;
 	
     if (bil2 == "") {
       var hasil = "";
-    }
-    else {
+    } else {
       var salida = eval(bil1) - eval(bil2);
-	  var hasil = eval(bil1) + eval(bil2);
+      var hasil  = eval(bil1) + eval(bil2);
     }
 
-	if (tt=="Salida"){
-		document.formObatMasuk.total_stok.value = (salida);
-	}	else {
-		document.formObatMasuk.total_stok.value = (hasil);
-	} 
-    
+    if (tt == "Salida") {
+      document.formObatMasuk.total_stok.value = salida;
+    } else {
+      document.formObatMasuk.total_stok.value = hasil;
+    } 
   }
 </script>
 
@@ -75,21 +74,19 @@ if ($_GET['form']=='add') { ?>
               $count = mysqli_num_rows($query_id);
 
               if ($count <> 0) {
-                 
                   $data_id = mysqli_fetch_assoc($query_id);
-                  $codigo    = $data_id['codigo']+1;
+                  $codigo  = (int)$data_id['codigo'] + 1; // FIX: cast a int para PHP 8
               } else {
                   $codigo = 1;
               }
 
-             
-              $tahun          = date("Y");
-              $buat_id        = str_pad($codigo, 7, "0", STR_PAD_LEFT);
+              $tahun              = date("Y");
+              $buat_id            = str_pad($codigo, 7, "0", STR_PAD_LEFT);
               $codigo_transaccion = "TM-$tahun-$buat_id";
               ?>
 
               <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo de Transacción </label>
+                <label class="col-sm-2 control-label">Codigo de Transacción</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control" name="codigo_transaccion" value="<?php echo $codigo_transaccion; ?>" readonly required>
                 </div>
@@ -110,10 +107,11 @@ if ($_GET['form']=='add') { ?>
                   <select class="chosen-select" name="codigo" data-placeholder="-- Seleccionar Producto --" onchange="tampil_obat(this)" autocomplete="off" required>
                     <option value=""></option>
                     <?php
-                      $query_obat = mysqli_query($mysqli, "SELECT codigo, nombre FROM producto ORDER BY nombre ASC")
+                      // FIX: tabla corregida de 'producto' a 'productos'
+                      $query_obat = mysqli_query($mysqli, "SELECT codigo, nombre FROM productos ORDER BY nombre ASC")
                                                             or die('error '.mysqli_error($mysqli));
                       while ($data_obat = mysqli_fetch_assoc($query_obat)) {
-                        echo"<option value=\"$data_obat[codigo]\"> $data_obat[codigo] | $data_obat[nombre] </option>";
+                        echo "<option value=\"$data_obat[codigo]\"> $data_obat[codigo] | $data_obat[nombre] </option>";
                       }
                     ?>
                   </select>
@@ -124,7 +122,7 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Stock</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="stok" name="stock" readonly required>
+                  <input type="text" class="form-control" id="stok" name="stok" readonly required>
                 </div>
               </div>
               </span>
@@ -132,17 +130,17 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Cantidad</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" id="jumlah_masuk" name="num" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" onkeyup="hitung_total_stok(this)&cek_jumlah_masuk(this)" required>
+                  <input type="text" class="form-control" id="jumlah_masuk" name="num" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" onkeyup="hitung_total_stok(this);cek_jumlah_masuk(this)" required>
                 </div>
               </div>
 			  
-			  <div class="form-group">
+              <div class="form-group">
                 <label class="col-sm-2 control-label">Transacción</label>
                 <div class="col-sm-5">
                   <select name="transaccion" id="transaccion" required class='form-control' onchange="hitung_total_stok();">
-					<option value="Salida">Salida</option>
-					<option value="Entrada">Entrada</option>
-				  </select>
+                    <option value="Salida">Salida</option>
+                    <option value="Entrada">Entrada</option>
+                  </select>
                 </div>
               </div>
 

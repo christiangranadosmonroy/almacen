@@ -1,4 +1,4 @@
- <?php  
+<?php  
 
 if ($_GET['form']=='add') { ?> 
 
@@ -30,16 +30,14 @@ if ($_GET['form']=='add') { ?>
               $count = mysqli_num_rows($query_id);
 
               if ($count <> 0) {
-            
                   $data_id = mysqli_fetch_assoc($query_id);
-                  $codigo    = $data_id['codigo']+1;
+                  $codigo = (int)$data_id['codigo'] + 1;
               } else {
                   $codigo = 1;
               }
 
-
-              $buat_id   = str_pad($codigo, 6, "0", STR_PAD_LEFT);
-              $codigo = "B$buat_id";
+              $buat_id = str_pad($codigo, 6, "0", STR_PAD_LEFT);
+              $codigo  = "B$buat_id";
               ?>
 
               <div class="form-group">
@@ -77,6 +75,13 @@ if ($_GET['form']=='add') { ?>
               </div>
 
               <div class="form-group">
+                <label class="col-sm-2 control-label">Stock Inicial</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="stock" value="0" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" required>
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label class="col-sm-2 control-label">Unidad</label>
                 <div class="col-sm-5">
                   <select class="chosen-select" name="unidad" data-placeholder="-- Seleccionar --" autocomplete="off" required>
@@ -108,11 +113,11 @@ if ($_GET['form']=='add') { ?>
 
 elseif ($_GET['form']=='edit') { 
   if (isset($_GET['id'])) {
-
-      $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad FROM productos WHERE codigo='$_GET[id]'") 
+      $id    = mysqli_real_escape_string($mysqli, $_GET['id']);
+      $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,stock,unidad FROM productos WHERE codigo='$id'") 
                                       or die('error: '.mysqli_error($mysqli));
       $data  = mysqli_fetch_assoc($query);
-    }
+  }
 ?>
 
   <section class="content-header">
@@ -138,14 +143,14 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <label class="col-sm-2 control-label">Codigo</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" name="codigo" value="<?php echo $data['codigo']; ?>" readonly required>
+                  <input type="text" class="form-control" name="codigo" value="<?php echo htmlspecialchars($data['codigo']); ?>" readonly required>
                 </div>
               </div>
 
               <div class="form-group">
                 <label class="col-sm-2 control-label">Nombre</label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" name="nombre" autocomplete="off" value="<?php echo $data['nombre']; ?>" required>
+                  <input type="text" class="form-control" name="nombre" autocomplete="off" value="<?php echo htmlspecialchars($data['nombre']); ?>" required>
                 </div>
               </div>
 
@@ -170,10 +175,17 @@ elseif ($_GET['form']=='edit') {
               </div>
 
               <div class="form-group">
+                <label class="col-sm-2 control-label">Stock</label>
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" name="stock" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" value="<?php echo (int)$data['stock']; ?>" required>
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label class="col-sm-2 control-label">Unidad</label>
                 <div class="col-sm-5">
                   <select class="chosen-select" name="unidad" data-placeholder="-- Seleccionar --" autocomplete="off" required>
-                    <option value="<?php echo $data['unidad']; ?>"><?php echo $data['unidad']; ?></option>
+                    <option value="<?php echo htmlspecialchars($data['unidad']); ?>"><?php echo htmlspecialchars($data['unidad']); ?></option>
                     <option value="botellas">Caja</option>
                     <option value="volumen">Volumen</option>
                     <option value="individual">Individual</option>

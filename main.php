@@ -10,7 +10,7 @@ session_start();
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Inventario de Productos">
-    <meta name="Oalabandamexico" content="Inventario de Productos - PalabandaMexico" />
+    <meta name="Xolotl Tech" content="Inventario de Productos - Xolotl Tech" />
     
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.png" />
@@ -85,7 +85,7 @@ session_start();
         <!-- Logo -->
         <a href="?module=beranda" class="logo">
           <img style="margin-top:-15px;margin-right:5px" src="assets/img/logo-blue.png" alt="Logo"> 
-          <span style="font-size:20px">PalabandaMexico</span>
+          <span style="font-size:20px">Xolotl Tech</span>
         </a>
 
         <nav class="navbar navbar-static-top" role="navigation">
@@ -140,7 +140,7 @@ session_start();
       </div><!-- /.content-wrapper -->
 
       <footer class="main-footer">
-        <strong>Todos los derechos reservados @EndFrameSystems 2021</strong>
+        <strong>Todos los derechos reservados @Xolotl Tech 2026</strong>
       </footer>
     </div><!-- ./wrapper -->
 

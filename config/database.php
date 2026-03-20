@@ -4,7 +4,7 @@
 $server   = "localhost";
 $username = "christian";
 $password = "";
-$database = "palabanda_almacen";
+$database = "almacen";
 
 
 $mysqli = new mysqli($server, $username, $password, $database);

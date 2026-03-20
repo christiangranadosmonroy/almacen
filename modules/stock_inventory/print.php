@@ -2,86 +2,79 @@
 session_start();
 ob_start();
 
-
 require_once "../../config/database.php";
-
 include "../../config/fungsi_tanggal.php";
-
 include "../../config/fungsi_rupiah.php";
 
 $hari_ini = date("d-m-Y");
 
-$no = 1;
-
 $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad,stock FROM productos ORDER BY nombre ASC")
                                 or die('Error '.mysqli_error($mysqli));
-$count  = mysqli_num_rows($query);
+$count = mysqli_num_rows($query);
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml"> 
+<html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Informes de stock de los Productos</title>
-        <link rel="stylesheet" type="text/css" href="../../assets/css/laporan.css" />
+        <style>
+            body { font-family: Arial, sans-serif; font-size: 11px; }
+            #title { text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 5px; }
+            table { width: 100%; border-collapse: collapse; }
+            th, td { border: 0.3px solid #000; padding: 3px 5px; }
+            thead { background: #e8ecee; }
+            .center { text-align: center; }
+            .right { text-align: right; }
+        </style>
     </head>
     <body>
-        <div id="title">
-           Stock de productos
-        </div>
-        
-        <hr><br>
-
-        <div id="isi">
-            <table width="100%" border="0.3" cellpadding="0" cellspacing="0">
-                <thead style="background:#e8ecee">
-                    <tr class="tr-title">
-                        <th height="20" align="center" valign="middle"><small>NO.</small></th>
-                        <th height="20" align="center" valign="middle"><small>CODIGO</small></th>
-                        <th height="20" align="center" valign="middle"><small>PRODUCTO</small></th>
-                        <th height="20" align="center" valign="middle"><small>PRECIO DE COMPRA</small></th>
-                        <th height="20" align="center" valign="middle"><small>PRECIO DE VENTA</small></th>
-                        <th height="20" align="center" valign="middle"><small>STOCK</small></th>
-                        <th height="20" align="center" valign="middle"><small>UNIDAD</small></th>
-                    </tr>
-                </thead>
-                <tbody>
+        <div id="title">Stock de productos</div>
+        <hr/>
+        <br/>
+        <table>
+            <thead>
+                <tr>
+                    <th class="center"><small>NO.</small></th>
+                    <th class="center"><small>CODIGO</small></th>
+                    <th class="center"><small>PRODUCTO</small></th>
+                    <th class="center"><small>PRECIO DE COMPRA</small></th>
+                    <th class="center"><small>PRECIO DE VENTA</small></th>
+                    <th class="center"><small>STOCK</small></th>
+                    <th class="center"><small>UNIDAD</small></th>
+                </tr>
+            </thead>
+            <tbody>
         <?php
-       
+        $no = 1;
         while ($data = mysqli_fetch_assoc($query)) {
             $precio_compra = format_rupiah($data['precio_compra']);
-            $precio_venta = format_rupiah($data['precio_venta']);
-          
-            echo "  <tr>
-                        <td width='40' height='13' align='center' valign='middle'>$no</td>
-                        <td width='80' height='13' align='center' valign='middle'>$data[codigo]</td>
-                        <td style='padding-left:5px;' width='180' height='13' valign='middle'>$data[nombre]</td>
-                        <td style='padding-right:10px;' width='80' height='13' align='right' valign='middle'>$. $precio_compra</td>
-                        <td style='padding-right:10px;' width='80' height='13' align='right' valign='middle'>$. $precio_venta</td>
-                        <td style='padding-right:10px;' width='80' height='13' align='right' valign='middle'>$data[stock]</td>
-                        <td width='80' height='13' align='center' valign='middle'>$data[unidad]</td>
-                    </tr>";
+            $precio_venta  = format_rupiah($data['precio_venta']);
+            echo "<tr>
+                    <td class='center'>$no</td>
+                    <td class='center'>{$data['codigo']}</td>
+                    <td>{$data['nombre']}</td>
+                    <td class='right'>$. $precio_compra</td>
+                    <td class='right'>$. $precio_venta</td>
+                    <td class='right'>{$data['stock']}</td>
+                    <td class='center'>{$data['unidad']}</td>
+                  </tr>";
             $no++;
         }
-        ?>  
-                </tbody>
-            </table>
-
-            
-        </div>
+        ?>
+            </tbody>
+        </table>
     </body>
 </html>
 <?php
-$filename="INFORMDE STOCK.pdf"; 
-//==========================================================================================================
 $content = ob_get_clean();
-$content = '<page style="font-family: freeserif">'.($content).'</page>';
 
-require_once('../../assets/plugins/html2pdf_v4.03/html2pdf.class.php');
-try
-{
-    $html2pdf = new HTML2PDF('P','F4','en', false, 'ISO-8859-15',array(10, 10, 10, 10));
-    $html2pdf->setDefaultFont('Arial');
-    $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
-    $html2pdf->Output($filename);
+// Usar la nueva librería instalada con Composer
+require_once('../../vendor/autoload.php');
+
+try {
+    $html2pdf = new Spipu\Html2Pdf\Html2Pdf('P', 'A4', 'es', true, 'UTF-8', array(10, 10, 10, 10));
+    $html2pdf->writeHTML($content);
+    $html2pdf->output('INFORME_STOCK.pdf');
+} catch (Spipu\Html2Pdf\Exception\Html2PdfException $e) {
+    echo $e->getMessage();
 }
-catch(HTML2PDF_exception $e) { echo $e; }
 ?>

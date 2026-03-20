@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 26-07-2017 a las 04:35:45
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 7.0.13
+-- Servidor: localhost:8889
+-- Tiempo de generación: 20-03-2026 a las 12:56:30
+-- Versión del servidor: 5.7.39
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `medisys`
+-- Base de datos: `almacen`
 --
 
 -- --------------------------------------------------------
@@ -94,7 +95,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_user`, `username`, `name_user`, `password`, `email`, `telefono`, `foto`, `permisos_acceso`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'PalabandaMexico', '21232f297a57a5a743894a0e4a801fc3', 'palabandamexico@outlook.com', '7025', 'user-default.png', 'Super Admin', 'activo', '2017-04-01 08:15:15', '2017-07-25 23:35:23');
+(1, 'admin', 'adminxolotl', '21232f297a57a5a743894a0e4a801fc3', 'test@xolotl.tech', '5510680201', 'Logo-socialmedia.png', 'Super Admin', 'activo', '2017-04-01 08:15:15', '2026-03-20 12:43:16');
 
 --
 -- Índices para tablas volcadas
@@ -132,6 +133,7 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -149,6 +151,7 @@ ALTER TABLE `productos`
 ALTER TABLE `transaccion_productos`
   ADD CONSTRAINT `transaccion_productos_ibfk_1` FOREIGN KEY (`codigo`) REFERENCES `productos` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaccion_productos_ibfk_2` FOREIGN KEY (`created_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
