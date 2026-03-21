@@ -1,10 +1,10 @@
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      <i class="fa fa-home icon-title"></i> Inicio
+      <i class="fa fa-home icon-title"></i> Dashboard
     </h1>
     <ol class="breadcrumb">
-      <li><a href="?module=beranda"><i class="fa fa-home"></i> Inicio</a></li>
+      <li><a href="?module=start"><i class="fa fa-home"></i> Dashboard</a></li>
     </ol>
   </section>
   

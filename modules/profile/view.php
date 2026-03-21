@@ -14,7 +14,7 @@ if (isset($_SESSION['id_user'])) {
     <i class="fa fa-user icon-title"></i> Perfil de Usuario
   </h1>
   <ol class="breadcrumb">
-    <li><a href="?module=start"><i class="fa fa-home"></i> Inicio</a></li>
+    <li><a href="?module=start"><i class="fa fa-home"></i> Dashboard</a></li>
     <li class="active"> Perfil de Usuario</li>
   </ol>
 </section>

@@ -4,11 +4,11 @@
 }
 
 .login-box-body, .register-box-body {
-    background: #fff none repeat scroll 0 0;
+    background: #2a2a2a none repeat scroll 0 0;
     border-radius: 3px;
-    border-top: 3.5px solid #3c8dbc;
+    border-top: 3.5px solid #2a2a2a;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-    color: #666;
+    color: #ffffff;
     padding: 20px;
 }
 
@@ -64,12 +64,12 @@ label {
 }
 
 .form-control {
-    background-color: #fff;
+    background-color: #373737;
     background-image: none;
-    border: 1px solid #ccc;
+    border: 1px solid #373737;
     border-radius: 4px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-    color: #555;
+    color: #ffffff;
     display: block;
     font-size: 15px;
     height: 34px;

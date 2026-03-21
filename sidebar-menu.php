@@ -14,7 +14,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 	}
 	?>
 		<li class="<?php echo $active_home;?>">
-			<a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+			<a href="?module=start"><i class="fa fa-home"></i> Dashboard </a>
 	  	</li>
 	<?php
 
@@ -130,14 +130,14 @@ elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
 
 	if ($_GET["module"]=="start") { ?>
 		<li class="active">
-			<a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+			<a href="?module=start"><i class="fa fa-home"></i> Dashboard </a>
 	  	</li>
 	<?php
 	}
 
 	else { ?>
 		<li>
-			<a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+			<a href="?module=start"><i class="fa fa-home"></i> Dashboard </a>
 	  	</li>
 	<?php
 	}
@@ -205,14 +205,14 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
 
   if ($_GET["module"]=="start") { ?>
     <li class="active">
-      <a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+      <a href="?module=start"><i class="fa fa-home"></i> Dashboard </a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+      <a href="?module=start"><i class="fa fa-home"></i> Dashboard </a>
       </li>
   <?php
   }

@@ -7,7 +7,7 @@ if ($_GET['form']=='add') { ?>
       <i class="fa fa-edit icon-title"></i> Agregar productos
     </h1>
     <ol class="breadcrumb">
-      <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
+      <li><a href="?module=start"><i class="fa fa-home"></i> Dashboard</a></li>
       <li><a href="?module=productos">productos </a></li>
       <li class="active"> Más </li>
     </ol>
@@ -125,7 +125,7 @@ elseif ($_GET['form']=='edit') {
       <i class="fa fa-edit icon-title"></i> Modificar Producto
     </h1>
     <ol class="breadcrumb">
-      <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
+      <li><a href="?module=start"><i class="fa fa-home"></i> Dashboard</a></li>
       <li><a href="?module=productos"> Productos </a></li>
       <li class="active"> Modificar </li>
     </ol>

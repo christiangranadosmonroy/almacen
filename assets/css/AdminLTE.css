@@ -1798,8 +1798,8 @@ a:focus {
   background-color: #e7e7e7 !important;
 }
 .btn-primary {
-  background-color: #3c8dbc;
-  border-color: #367fa9;
+  background-color: #ffba00;
+    border-color: #ffba00;
 }
 .btn-primary:hover,
 .btn-primary:active,

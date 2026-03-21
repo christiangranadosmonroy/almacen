@@ -3,7 +3,7 @@
     <i class="fa fa-lock icon-title"></i> Modificar Contraseña
   </h1>
   <ol class="breadcrumb">
-    <li><a href="?module=start"><i class="fa fa-home"></i> Inicio</a></li>
+    <li><a href="?module=start"><i class="fa fa-home"></i> Dashboard</a></li>
     <li class="active">Contraseña</li>
     <li class="active">Modificar</li>
   </ol>

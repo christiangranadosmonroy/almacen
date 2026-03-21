@@ -51,7 +51,7 @@ if ($_GET['form']=='add') { ?>
       <i class="fa fa-edit icon-title"></i> Datos entradas / salidas de Productos
     </h1>
     <ol class="breadcrumb">
-      <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
+      <li><a href="?module=start"><i class="fa fa-home"></i> Dashboard</a></li>
       <li><a href="?module=productos_transaction"> Entrada </a></li>
       <li class="active"> Agregar </li>
     </ol>

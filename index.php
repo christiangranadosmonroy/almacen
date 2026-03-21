@@ -9,7 +9,7 @@
     <meta name="Xolotl Tech"/>
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="assets/img/favicon.png" />
+    <link rel="shortcut icon" href="assets/img/favicon.ico" />
 
     <!-- Bootstrap 3.3.2 -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -27,7 +27,7 @@
     <div class="login-box">
       <!-- /.login-logo -->
       <div style="color:#FF0040" class="login-logo">
-        <img style="margin-top:-12px" src="assets/img/palabanda.png" alt="Logo" height="50">
+        <img style="margin-top:-12px" src="assets/img/Logo xolotl.webp" alt="Logo" height="50">
       </div>
       <?php  
  
