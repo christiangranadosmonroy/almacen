@@ -166,14 +166,14 @@ body.dark-mode .main-footer {
 
 /* Modales */
 body.dark-mode .modal-content {
-  background-color: #16213e !important;
-  color: #e0e0e0 !important;
-  border-color: #0f3460 !important;
+      background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #000000 !important;
 }
 
 body.dark-mode .modal-header,
 body.dark-mode .modal-footer {
-  border-color: #0f3460 !important;
+  border-color: #000000 !important;
 }
 
 /* Chosen select */
