@@ -4,5 +4,6 @@ session_start();
 session_destroy();
 
 // alihkan ke halaman login (index.php) dan berikan alert = 2
-header('Location: index.php?alert=2');
-?>
+$_SESSION['alert'] = 2;
+header("Location: index.php");
+exit;
