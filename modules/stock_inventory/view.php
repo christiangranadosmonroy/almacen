@@ -48,8 +48,8 @@
                       <td width='30' class='center'>$no</td>
                       <td width='80' class='center'>$data[codigo]</td>
                       <td width='180'>$data[nombre]</td>
-                      <td width='100' align='right'>$. $precio_compra</td>
-                      <td width='100' align='right'>$. $precio_venta</td>
+                      <td width='100' align='right'>$ $precio_compra</td>
+                      <td width='100' align='right'>$ $precio_venta</td>
                       <td width='80' align='right'>$data[stock]</td>
                       <td width='80' class='center'>$data[unidad]</td>
                     </tr>";

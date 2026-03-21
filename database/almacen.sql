@@ -45,7 +45,7 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`codigo`, `nombre`, `precio_compra`, `precio_venta`, `unidad`, `stock`, `created_user`, `created_date`, `updated_user`, `updated_date`) VALUES
-('PALBP1', 'Bota', 70, 120, 'volumen', 9, 1, '2017-07-24 16:43:20', 1, '2021-10-16 09:09:06');
+('PRD001', 'articulo test', 70, 120, 'volumen', 9, 1, '2017-07-24 16:43:20', 1, '2021-10-16 09:09:06');
 
 -- --------------------------------------------------------
 

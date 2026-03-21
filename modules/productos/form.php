@@ -13,29 +13,23 @@ if ($_GET['form']=='add') { ?>
     </ol>
   </section>
 
-  <!-- Main content -->
   <section class="content">
     <div class="row">
       <div class="col-md-12">
         <div class="box box-primary">
-          <!-- form start -->
           <form role="form" class="form-horizontal" action="modules/productos/proses.php?act=insert" method="POST">
             <div class="box-body">
               <?php  
-          
               $query_id = mysqli_query($mysqli, "SELECT RIGHT(codigo,6) as codigo FROM productos
                                                 ORDER BY codigo DESC LIMIT 1")
                                                 or die('error '.mysqli_error($mysqli));
-
               $count = mysqli_num_rows($query_id);
-
               if ($count <> 0) {
                   $data_id = mysqli_fetch_assoc($query_id);
                   $codigo = (int)$data_id['codigo'] + 1;
               } else {
                   $codigo = 1;
               }
-
               $buat_id = str_pad($codigo, 6, "0", STR_PAD_LEFT);
               $codigo  = "B$buat_id";
               ?>
@@ -58,8 +52,8 @@ if ($_GET['form']=='add') { ?>
                 <label class="col-sm-2 control-label">Precio de Compra</label>
                 <div class="col-sm-5">
                   <div class="input-group">
-                    <span class="input-group-addon">$.</span>
-                    <input type="text" class="form-control" id="precio_compra" name="pcompra" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" required>
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" id="precio_compra" name="pcompra" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" onkeyup="calcularGanancia()" required>
                   </div>
                 </div>
               </div>
@@ -68,8 +62,20 @@ if ($_GET['form']=='add') { ?>
                 <label class="col-sm-2 control-label">Precio de Venta</label>
                 <div class="col-sm-5">
                   <div class="input-group">
-                    <span class="input-group-addon">$.</span>
-                    <input type="text" class="form-control" id="precio_venta" name="pventa" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" required>
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" id="precio_venta" name="pventa" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" onkeyup="calcularGanancia()" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ganancia en tiempo real -->
+              <div class="form-group" id="fila-ganancia" style="display:none;">
+                <label class="col-sm-2 control-label">Ganancia</label>
+                <div class="col-sm-5">
+                  <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" id="ganancia" readonly>
+                    <span class="input-group-addon" id="margen-pct" style="min-width:70px; font-weight:bold;">0%</span>
                   </div>
                 </div>
               </div>
@@ -102,12 +108,12 @@ if ($_GET['form']=='add') { ?>
                   <a href="?module=productos" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
-            </div><!-- /.box footer -->
+            </div>
           </form>
-        </div><!-- /.box -->
-      </div><!--/.col -->
-    </div>   <!-- /.row -->
-  </section><!-- /.content -->
+        </div>
+      </div>
+    </div>
+  </section>
 <?php
 }
 
@@ -131,12 +137,10 @@ elseif ($_GET['form']=='edit') {
     </ol>
   </section>
 
-  <!-- Main content -->
   <section class="content">
     <div class="row">
       <div class="col-md-12">
         <div class="box box-primary">
-          <!-- form start -->
           <form role="form" class="form-horizontal" action="modules/productos/proses.php?act=update" method="POST">
             <div class="box-body">
               
@@ -158,8 +162,8 @@ elseif ($_GET['form']=='edit') {
                 <label class="col-sm-2 control-label">Precio de Compra</label>
                 <div class="col-sm-5">
                   <div class="input-group">
-                    <span class="input-group-addon">$.</span>
-                    <input type="text" class="form-control" id="precio_compra" name="pcompra" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" value="<?php echo format_rupiah($data['precio_compra']); ?>" required>
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" id="precio_compra" name="pcompra" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" onkeyup="calcularGanancia()" value="<?php echo format_rupiah($data['precio_compra']); ?>" required>
                   </div>
                 </div>
               </div>
@@ -168,8 +172,20 @@ elseif ($_GET['form']=='edit') {
                 <label class="col-sm-2 control-label">Precio de Venta</label>
                 <div class="col-sm-5">
                   <div class="input-group">
-                    <span class="input-group-addon">$.</span>
-                    <input type="text" class="form-control" id="precio_venta" name="pventa" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" value="<?php echo format_rupiah($data['precio_venta']); ?>" required>
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" id="precio_venta" name="pventa" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" onkeyup="calcularGanancia()" value="<?php echo format_rupiah($data['precio_venta']); ?>" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ganancia en tiempo real -->
+              <div class="form-group" id="fila-ganancia">
+                <label class="col-sm-2 control-label">Ganancia</label>
+                <div class="col-sm-5">
+                  <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control" id="ganancia" readonly>
+                    <span class="input-group-addon" id="margen-pct" style="min-width:70px; font-weight:bold;">0%</span>
                   </div>
                 </div>
               </div>
@@ -202,12 +218,54 @@ elseif ($_GET['form']=='edit') {
                   <a href="?module=productos" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
-            </div><!-- /.box footer -->
+            </div>
           </form>
-        </div><!-- /.box -->
-      </div><!--/.col -->
-    </div>   <!-- /.row -->
-  </section><!-- /.content -->
+        </div>
+      </div>
+    </div>
+  </section>
 <?php
 }
 ?>
+
+<script>
+function calcularGanancia() {
+  // FIX: limpiar puntos de formato de miles antes de parsear
+  var compra  = parseInt(document.getElementById('precio_compra').value.replace(/\./g, '')) || 0;
+  var venta   = parseInt(document.getElementById('precio_venta').value.replace(/\./g, ''))  || 0;
+  var ganancia = venta - compra;
+
+  var filaGanancia  = document.getElementById('fila-ganancia');
+  var inputGanancia = document.getElementById('ganancia');
+  var spanMargen    = document.getElementById('margen-pct');
+
+  if (compra <= 0 || venta <= 0) {
+    filaGanancia.style.display = 'none';
+    return;
+  }
+
+  filaGanancia.style.display = 'block';
+  inputGanancia.value = ganancia.toLocaleString('es-MX');
+
+  var margen = ((ganancia / compra) * 100).toFixed(1);
+
+  if (ganancia < 0) {
+    inputGanancia.style.color = '#e74c3c';
+    spanMargen.style.color    = '#e74c3c';
+    spanMargen.textContent    = margen + '% ▼';
+  } else if (margen < 10) {
+    inputGanancia.style.color = '#e67e22';
+    spanMargen.style.color    = '#e67e22';
+    spanMargen.textContent    = margen + '% →';
+  } else {
+    inputGanancia.style.color = '#27ae60';
+    spanMargen.style.color    = '#27ae60';
+    spanMargen.textContent    = margen + '% ▲';
+  }
+}
+
+// En edit: calcular al cargar la página
+window.addEventListener('load', function() {
+  calcularGanancia();
+});
+</script>
