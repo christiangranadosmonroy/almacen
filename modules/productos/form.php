@@ -86,7 +86,7 @@ if ($_GET['form']=='add') { ?>
                 <div class="col-sm-5">
                   <select class="chosen-select" name="unidad" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                     <option value=""></option>
-                    <option value="botellas">Caja</option>
+                    <option value="cajas">Cajas</option>
                     <option value="volumen">Volumen</option>
                     <option value="individual">Individual</option>
                   </select>
@@ -186,7 +186,7 @@ elseif ($_GET['form']=='edit') {
                 <div class="col-sm-5">
                   <select class="chosen-select" name="unidad" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                     <option value="<?php echo htmlspecialchars($data['unidad']); ?>"><?php echo htmlspecialchars($data['unidad']); ?></option>
-                    <option value="botellas">Caja</option>
+                    <option value="cajas">Cajas</option>
                     <option value="volumen">Volumen</option>
                     <option value="individual">Individual</option>
                   </select>
