@@ -115,7 +115,7 @@ body.dark-mode .control-label {
 
 /* Tablas */
 body.dark-mode .table {
-  color: #e0e0e0 !important;
+  color: #fff !important;
 }
 
 body.dark-mode .table > thead > tr > th {
