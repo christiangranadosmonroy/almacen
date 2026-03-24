@@ -1,5 +1,3 @@
-
-
 <script type="text/javascript">
   function tampil_obat(input){
     var num = input.value;
@@ -8,7 +6,6 @@
       dataidobat: num,
     }, function(response) {      
       $('#stok').html(response)
-
       document.getElementById('jumlah_masuk').focus();
     });
   }
@@ -57,40 +54,12 @@ if ($_GET['form']=='add') { ?>
     </ol>
   </section>
 
-  <!-- Main content -->
   <section class="content">
     <div class="row">
       <div class="col-md-12">
         <div class="box box-primary">
-          <!-- form start -->
           <form role="form" class="form-horizontal" action="modules/productos_transaction/proses.php?act=insert" method="POST" name="formObatMasuk">
             <div class="box-body">
-              <?php  
-            
-              $query_id = mysqli_query($mysqli, "SELECT RIGHT(codigo_transaccion,7) as codigo FROM transaccion_productos
-                                                ORDER BY codigo_transaccion DESC LIMIT 1")
-                                                or die('Error : '.mysqli_error($mysqli));
-
-              $count = mysqli_num_rows($query_id);
-
-              if ($count <> 0) {
-                  $data_id = mysqli_fetch_assoc($query_id);
-                  $codigo  = (int)$data_id['codigo'] + 1; // FIX: cast a int para PHP 8
-              } else {
-                  $codigo = 1;
-              }
-
-              $tahun              = date("Y");
-              $buat_id            = str_pad($codigo, 7, "0", STR_PAD_LEFT);
-              $codigo_transaccion = "TM-$tahun-$buat_id";
-              ?>
-
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo de Transacción</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" name="codigo_transaccion" value="<?php echo $codigo_transaccion; ?>" readonly required>
-                </div>
-              </div>
 
               <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha</label>
@@ -107,7 +76,6 @@ if ($_GET['form']=='add') { ?>
                   <select class="chosen-select" name="codigo" data-placeholder="-- Seleccionar Producto --" onchange="tampil_obat(this)" autocomplete="off" required>
                     <option value=""></option>
                     <?php
-                      // FIX: tabla corregida de 'producto' a 'productos'
                       $query_obat = mysqli_query($mysqli, "SELECT codigo, nombre FROM productos ORDER BY nombre ASC")
                                                             or die('error '.mysqli_error($mysqli));
                       while ($data_obat = mysqli_fetch_assoc($query_obat)) {
@@ -160,12 +128,12 @@ if ($_GET['form']=='add') { ?>
                   <a href="?module=productos_transaction" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
-            </div><!-- /.box footer -->
+            </div>
           </form>
-        </div><!-- /.box -->
-      </div><!--/.col -->
-    </div>   <!-- /.row -->
-  </section><!-- /.content -->
+        </div>
+      </div>
+    </div>
+  </section>
 <?php
 }
 ?>
